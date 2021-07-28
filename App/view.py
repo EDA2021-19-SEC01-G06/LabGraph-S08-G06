@@ -31,6 +31,7 @@ import threading
 from App import controller
 from DISClib.ADT import stack
 assert config
+from time import process_time
 
 """
 La vista se encarga de la interacción con el usuario.
@@ -83,7 +84,11 @@ def optionThree(cont):
 
 
 def optionFour(cont, initialStation):
+    start_time = process_time()
     controller.minimumCostPaths(cont, initialStation)
+    stop_time = process_time()
+    print("Tiempo de ejecución:", stop_time - start_time, "[s]")
+    sys.exit(0) #TODO DELETE
 
 
 def optionFive(cont, destStation):
